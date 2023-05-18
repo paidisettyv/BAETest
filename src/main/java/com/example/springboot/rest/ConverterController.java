@@ -25,6 +25,13 @@ public class ConverterController {
   @GetMapping(path = "/romanNumeralToDecimal/{numeral}")
   public ResponseEntity<?> getDecimal(@PathVariable String numeral){
     try {
+      String pattern = "^[IVXLCDM]+$";
+      if(numeral.length() < 1 || numeral.length() > 15) {
+        return ResponseEntity.badRequest().body("Invalid roman numeral, should be between 1 and 15");
+      }
+      if(!numeral.matches(pattern)) {
+        return ResponseEntity.badRequest().body("Invalid roman numeral, should contain only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M')");
+      }
       return ResponseEntity.ok(converterService.convertRomanNumeralToDecimal(numeral));
     }
     catch (Exception e) {
@@ -35,8 +42,8 @@ public class ConverterController {
   @GetMapping(path = "/decimalToRomanNumeral/{decimal}")
   public ResponseEntity<?> getRomanNumeral(@PathVariable Long decimal){
     try {
-      if (decimal <= 0 || decimal > 3999) {
-        return ResponseEntity.badRequest().body("Invalid decimal, please send a value between 1 and 3 ");
+      if (decimal < 1 || decimal > 3999) {
+        return ResponseEntity.badRequest().body("Invalid decimal, please send a value between 1 and 3999");
       }
       return ResponseEntity.ok(converterService.convertDecimalToRomanNumeral(decimal));
     } catch (Exception e) {

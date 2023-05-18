@@ -1,126 +1,93 @@
 package com.example.springboot;
 
 import com.example.springboot.service.ConverterService;
+import com.example.springboot.service.impl.ConverterServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.annotations.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 public class RomanToDecimalConverterTest {
-
-    @InjectMocks
-    private ConverterService ConverterServiceImpl;
+    private ConverterService converterServiceImpl;
 
     @BeforeEach
     void setup() {
-        MockitoAnnotations.openMocks(this);
+        converterServiceImpl = new ConverterServiceImpl();
     }
 
     @Test
-    public void testRomanToDecimal_III() {
+    public void shouldReturn3_whenconvertedRomanNumeralToDecimal_givenIII() {
         // Arrange
         String romanNumeral = "III";
         int expected = 3;
-
         // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testRomanToDecimal_IX() {
+    public void shouldReturn3888_whenconvertedRomanNumeralToDecimal_givenMMMDCCCLXXXVIII() {
         // Arrange
-        String romanNumeral = "IX";
-        int expected = 9;
+        String romanNumeral = "MMMDCCCLXXXVIII";
+        int expected = 3888;
 
         // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldReturn3999_whenconvertedRomanNumeralToDecimal_givenMMMCMXCIX() {
+        // Arrange
+        String romanNumeral = "MMMCMXCIX";
+        int expected = 3999;
+
+        // Act
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testRomanToDecimal_LVIII() {
+    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenStringA(){
         // Arrange
-        String romanNumeral = "LVIII";
-        int expected = 58;
+        String romanNumeral = "A";
+        int expected = -1;
 
         // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
     }
-
     @Test
-    public void testRomanToDecimal_MCMXCIV() {
+    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenEmptyString(){
         // Arrange
-        String romanNumeral = "MCMXCIV";
-        int expected = 1994;
+        String romanNumeral = "";
+        int expected = -1;
 
         // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
     }
-
     @Test
-    public void testRomanToDecimal_CD() {
+    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenStringGreaterThan15(){
         // Arrange
-        String romanNumeral = "CD";
-        int expected = 400;
+        String romanNumeral = "MMMDCCCLXXXVIIII";
+        int expected = -1;
 
         // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testRomanToDecimal_MMCDXXI() {
-        // Arrange
-        String romanNumeral = "MMCDXXI";
-        int expected = 2421;
-
-        // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testRomanToDecimal_XC() {
-        // Arrange
-        String romanNumeral = "XC";
-        int expected = 90;
-
-        // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testRomanToDecimal_VIII() {
-        // Arrange
-        String romanNumeral = "VIII";
-        int expected = 8;
-
-        // Act
-        Long actual = ConverterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
