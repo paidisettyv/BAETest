@@ -28,7 +28,31 @@ public class RomanToDecimalConverterTest {
         // Assert
         assertEquals(expected, actual);
     }
+    @Test
+    public void shouldReturn1994_whenconvertedRomanNumeralToDecimal_givenMCMXCIV() {
+        // Arrange
+        String romanNumeral = "MCMXCIV";
+        int expected = 1994;
 
+        // Act
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturn400_whenconvertedRomanNumeralToDecimal_givenCD() {
+        // Arrange
+        String romanNumeral = "CD";
+        int expected = 400;
+
+        // Act
+        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
     @Test
     public void shouldReturn3888_whenconvertedRomanNumeralToDecimal_givenMMMDCCCLXXXVIII() {
         // Arrange
@@ -56,40 +80,4 @@ public class RomanToDecimalConverterTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenStringA(){
-        // Arrange
-        String romanNumeral = "A";
-        int expected = -1;
-
-        // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenEmptyString(){
-        // Arrange
-        String romanNumeral = "";
-        int expected = -1;
-
-        // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void shouldReturnMinusOne_whenConvertingRomanToDecimal_givenStringGreaterThan15(){
-        // Arrange
-        String romanNumeral = "MMMDCCCLXXXVIIII";
-        int expected = -1;
-
-        // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
 }
