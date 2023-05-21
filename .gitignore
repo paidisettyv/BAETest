@@ -31,3 +31,4 @@
 /target/test-classes/com/example/springboot/rest/ConverterControllerIT.class
 /target/test-classes/com/example/springboot/service/DecimalToRomanConverterTest.class
 /target/test-classes/com/example/springboot/service/RomanToDecimalConverterTest.class
+/.idea/workspace.xml
