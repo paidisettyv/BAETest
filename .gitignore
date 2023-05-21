@@ -27,3 +27,7 @@
 /target/test-classes/com/example/springboot/ConverterControllerIT.class
 /target/surefire-reports/TEST-com.example.springboot.RomanToDecimalConverterTest.xml
 /.idea/uiDesigner.xml
+/target/test-classes/com/example/springboot/rest/ApplicationIT.class
+/target/test-classes/com/example/springboot/rest/ConverterControllerIT.class
+/target/test-classes/com/example/springboot/service/DecimalToRomanConverterTest.class
+/target/test-classes/com/example/springboot/service/RomanToDecimalConverterTest.class
