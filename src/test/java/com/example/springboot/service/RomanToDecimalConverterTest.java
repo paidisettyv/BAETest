@@ -1,4 +1,4 @@
-package com.example.springboot;
+package com.example.springboot.service;
 
 import com.example.springboot.service.ConverterService;
 import com.example.springboot.service.impl.ConverterServiceImpl;
@@ -23,7 +23,7 @@ public class RomanToDecimalConverterTest {
         String romanNumeral = "III";
         int expected = 3;
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -35,7 +35,7 @@ public class RomanToDecimalConverterTest {
         int expected = 1994;
 
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -48,7 +48,7 @@ public class RomanToDecimalConverterTest {
         int expected = 400;
 
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -60,7 +60,7 @@ public class RomanToDecimalConverterTest {
         int expected = 3888;
 
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);
@@ -74,7 +74,7 @@ public class RomanToDecimalConverterTest {
         int expected = 3999;
 
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);

@@ -15,7 +15,7 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 @RequestMapping
 public class ConverterController {
 
-  private ConverterService converterService;
+  private final ConverterService converterService;
 
   @Inject
   public ConverterController(ConverterService converterService) {
@@ -26,8 +26,8 @@ public class ConverterController {
   public ResponseEntity<?> getDecimal(@PathVariable String numeral){
     try {
       String pattern = "^[IVXLCDM]+$";
-      if(numeral.length() < 1 || numeral.length() > 15) {
-        return ResponseEntity.badRequest().body("Invalid roman numeral, should be between 1 and 15");
+      if(numeral.length() > 15) {
+        return ResponseEntity.badRequest().body("Invalid roman numeral, should be less than 15");
       }
       if(!numeral.matches(pattern)) {
         return ResponseEntity.badRequest().body("Invalid roman numeral, should contain only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M')");
@@ -40,7 +40,7 @@ public class ConverterController {
   }
 
   @GetMapping(path = "/decimalToRomanNumeral/{decimal}")
-  public ResponseEntity<?> getRomanNumeral(@PathVariable Long decimal){
+  public ResponseEntity<?> getRomanNumeral(@PathVariable int decimal){
     try {
       if (decimal < 1 || decimal > 3999) {
         return ResponseEntity.badRequest().body("Invalid decimal, please send a value between 1 and 3999");

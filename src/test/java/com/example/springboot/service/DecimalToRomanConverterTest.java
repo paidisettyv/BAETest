@@ -1,4 +1,4 @@
-package com.example.springboot;
+package com.example.springboot.service;
 
 import com.example.springboot.service.ConverterService;
 import com.example.springboot.service.impl.ConverterServiceImpl;
@@ -21,46 +21,40 @@ public class DecimalToRomanConverterTest {
     @Test
     public void shouldReturnRomanNumeralX_whenConvertingDecimalToRoman_givenDecimal10() {
         // Arrange
-        Long value = 10L;
+        int value = 10;
         String expected = "X";
         // Act
         String actual = converterServiceImpl.convertDecimalToRomanNumeral(value);
-
         // Assert
         assertEquals(expected, actual);
     }
     @Test
     public void shouldReturnRomanNumeralMMMCMXCIX_whenConvertingDecimalToRoman_given3999() {
         // Arrange
-        Long value = 3999L;
+        int value = 3999;
         String expected = "MMMCMXCIX";
         // Act
         String actual = converterServiceImpl.convertDecimalToRomanNumeral(value);
-
         // Assert
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldReturnCD_whenconvertedRomanNumeralToDecimal_given400() {
+    public void shouldReturnCD_whenConvertingRomanNumeralToDecimal_given400() {
         // Arrange
         String expected = "CD";
-        Long value = 400L;
-
+        int value = 400;
         // Act
         String actual = converterServiceImpl.convertDecimalToRomanNumeral(value);
-
         // Assert
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldReturnRomanNumeralMMMDCCCLXXXVIII_whenconvertingDecimalToRomanNumeral_given3888() {
+    public void shouldReturnRomanNumeralMMMDCCCLXXXVIII_whenConvertingDecimalToRomanNumeral_given3888() {
         // Arrange
         String expected = "MMMDCCCLXXXVIII";
-        Long value = 3888L;
-
+        int value = 3888;
         // Act
         String actual = converterServiceImpl.convertDecimalToRomanNumeral(value);
-
         // Assert
         assertEquals(expected, actual);
     }
@@ -73,7 +67,7 @@ public class DecimalToRomanConverterTest {
         int expected = 1994;
 
         // Act
-        Long actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
+        int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
 
         // Assert
         assertEquals(expected, actual);

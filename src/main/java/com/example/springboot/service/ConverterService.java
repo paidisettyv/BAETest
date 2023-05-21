@@ -2,7 +2,7 @@ package com.example.springboot.service;
 
 public interface ConverterService {
 
-  Long convertRomanNumeralToDecimal(String romanNumeral);
+  int convertRomanNumeralToDecimal(String romanNumeral);
 
-  String convertDecimalToRomanNumeral(Long decimal);
+  String convertDecimalToRomanNumeral(int decimal);
 }
