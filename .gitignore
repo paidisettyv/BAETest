@@ -23,3 +23,7 @@
 /target/spring-boot-complete-0.0.1-SNAPSHOT.jar.original
 /target/surefire-reports/TEST-com.example.springboot.ApplicationTest.xml
 /.idea/vcs.xml
+/target/surefire-reports/com.example.springboot.RomanToDecimalConverterTest.txt
+/target/test-classes/com/example/springboot/ConverterControllerIT.class
+/target/surefire-reports/TEST-com.example.springboot.RomanToDecimalConverterTest.xml
+/.idea/uiDesigner.xml

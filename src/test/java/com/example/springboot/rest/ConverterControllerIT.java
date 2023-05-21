@@ -55,7 +55,7 @@ public class ConverterControllerIT {
         assertTrue("Should return " + expected, Objects.equals(response.getBody(), expected));
     }
     @Test
-    void shouldReturnInvalidMessage_WhenConvertingRomanToDecimal_givenNumeralx() throws NullPointerException{
+    void shouldReturnInvalidMessage_WhenConvertingRomanToDecimal_givenNumeralx() {
         //Arrange
         String romanNumeral = "x";
         String expected = "Invalid roman numeral, should contain only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M')";
