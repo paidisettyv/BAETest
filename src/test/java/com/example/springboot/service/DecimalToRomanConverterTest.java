@@ -1,15 +1,11 @@
 package com.example.springboot.service;
 
-import com.example.springboot.service.ConverterService;
 import com.example.springboot.service.impl.ConverterServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
 public class DecimalToRomanConverterTest {
     private ConverterService converterServiceImpl;
 
@@ -19,7 +15,7 @@ public class DecimalToRomanConverterTest {
     }
 
     @Test
-    public void shouldReturnRomanNumeralX_whenConvertingDecimalToRoman_givenDecimal10() {
+    public void shouldReturnRomanNumeralX_whenConvertingDecimalToRoman_givenDecimalTen() {
         // Arrange
         int value = 10;
         String expected = "X";
@@ -39,7 +35,7 @@ public class DecimalToRomanConverterTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldReturnCD_whenConvertingRomanNumeralToDecimal_given400() {
+    public void shouldReturnCD_whenConvertingRomanNumeralToDecimal_givenFourHundred() {
         // Arrange
         String expected = "CD";
         int value = 400;

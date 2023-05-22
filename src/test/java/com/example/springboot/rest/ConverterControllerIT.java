@@ -21,7 +21,7 @@ public class ConverterControllerIT {
     private final String LOCALHOST = "http://localhost:";
 
     @Test
-    void shouldReturn10_WhenConvertingRomanToDecimal_givenNumeralX() {
+    void shouldReturnTen_WhenConvertingRomanToDecimal_givenNumeralX() {
         //Arrange
         String romanNumeral = "X";
         String expected = "10";

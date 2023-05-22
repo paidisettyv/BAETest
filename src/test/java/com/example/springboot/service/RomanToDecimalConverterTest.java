@@ -1,14 +1,10 @@
 package com.example.springboot.service;
 
-import com.example.springboot.service.ConverterService;
 import com.example.springboot.service.impl.ConverterServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
 public class RomanToDecimalConverterTest {
     private ConverterService converterServiceImpl;
 
@@ -18,64 +14,55 @@ public class RomanToDecimalConverterTest {
     }
 
     @Test
-    public void shouldReturn3_whenconvertedRomanNumeralToDecimal_givenIII() {
+    public void shouldReturnDecimalThree_whenConvertingRomanNumeralToDecimal_givenNumeralIII() {
         // Arrange
         String romanNumeral = "III";
         int expected = 3;
         // Act
         int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
         // Assert
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldReturn1994_whenconvertedRomanNumeralToDecimal_givenMCMXCIV() {
+    public void shouldReturnDecimal1994_whenConvertingRomanNumeralToDecimal_givenNumeralMCMXCIV() {
         // Arrange
         String romanNumeral = "MCMXCIV";
         int expected = 1994;
-
         // Act
         int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
         // Assert
         assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldReturn400_whenconvertedRomanNumeralToDecimal_givenCD() {
+    public void shouldReturnDecimalFourHundred_whenConvertingRomanNumeralToDecimal_givenNumeralCD() {
         // Arrange
         String romanNumeral = "CD";
         int expected = 400;
-
         // Act
         int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
         // Assert
         assertEquals(expected, actual);
     }
     @Test
-    public void shouldReturn3888_whenconvertedRomanNumeralToDecimal_givenMMMDCCCLXXXVIII() {
+    public void shouldReturnDecimal3888_whenConvertingRomanNumeralToDecimal_givenNumeralMMMDCCCLXXXVIII() {
         // Arrange
         String romanNumeral = "MMMDCCCLXXXVIII";
         int expected = 3888;
-
         // Act
         int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
         // Assert
         assertEquals(expected, actual);
     }
 
 
     @Test
-    public void shouldReturn3999_whenconvertedRomanNumeralToDecimal_givenMMMCMXCIX() {
+    public void shouldReturnDecimal3999_whenConvertingRomanNumeralToDecimal_givenNumeralMMMCMXCIX() {
         // Arrange
         String romanNumeral = "MMMCMXCIX";
         int expected = 3999;
-
         // Act
         int actual = converterServiceImpl.convertRomanNumeralToDecimal(romanNumeral);
-
         // Assert
         assertEquals(expected, actual);
     }
